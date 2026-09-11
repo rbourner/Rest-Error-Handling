@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" namespace="https://kie.org/bpmn/_F8749154-1994-453C-BFC6-382B1F2836DB" id="_0089C0A4-C907-496D-9834-C393F5B934BB" name="BPMN_683F6F15-3857-4503-AC32-0E769202B6C3" targetNamespace="http://www.omg.org/bpmn20">
+  <itemDefinition id="_C1742A25-D051-49B5-B6F2-72003396F55A" structureRef="String" />
+  <itemDefinition id="_DF904DE4-AB4C-4B9C-95FF-301F6DE6A798" structureRef="Object" />
+  <itemDefinition id="_CC02B788-460B-4382-BB6E-120F0001E62E" structureRef="java.lang.Object" />
+  <itemDefinition id="_7AD06268-FEE4-4F7E-AC74-E80C280B0ACE" structureRef="com.acme.User" />
+  <error id="_1F0FD8F4-57FA-4E44-858A-CFF5979F91BA" structureRef="Error__6DA8956Type" name="Error__6DA8956" errorCode="Error__6DA8956" />
+  <error id="_EC55E376-73A9-4982-8310-5FE3B976BD35" structureRef="java.lang.ThrowableType" name="java.lang.Throwable" errorCode="java.lang.Throwable" />
+  <process id="main_process" isExecutable="true" drools:adHoc="false" name="main-process" drools:packageName="com.acme">
+    <property id="_2678688B-AD2C-4B8D-AB75-CDB108C5EB44" name="key" itemSubjectRef="_C1742A25-D051-49B5-B6F2-72003396F55A">
+      <extensionElements>
+        <drools:metaData name="customTags">
+          <drools:metaValue>input</drools:metaValue>
+        </drools:metaData>
+      </extensionElements>
+    </property>
+    <property id="_D499AA75-46CE-4286-8060-3F3FB2889685" name="user" itemSubjectRef="_7AD06268-FEE4-4F7E-AC74-E80C280B0ACE">
+      <extensionElements>
+        <drools:metaData name="customTags">
+          <drools:metaValue>output</drools:metaValue>
+        </drools:metaData>
+      </extensionElements>
+    </property>
+    <property id="_083C2F09-0367-4D09-9CAA-42A801464C21" name="url" itemSubjectRef="_C1742A25-D051-49B5-B6F2-72003396F55A">
+      <extensionElements>
+        <drools:metaData name="customTags">
+          <drools:metaValue>internal</drools:metaValue>
+        </drools:metaData>
+      </extensionElements>
+    </property>
+    <property id="_54EB1D2D-D563-47D3-80E3-D7662801B3E4" name="strategy" itemSubjectRef="_C1742A25-D051-49B5-B6F2-72003396F55A">
+      <extensionElements>
+        <drools:metaData name="customTags">
+          <drools:metaValue>input</drools:metaValue>
+        </drools:metaData>
+      </extensionElements>
+    </property>
+    <startEvent id="_29D91105-AB66-4E4C-B598-39CF7E8BBC7E" name="Start Main Process">
+      <outgoing>_4DA5EE99-A022-4C5F-86DC-9942CD4353E9</outgoing>
+    </startEvent>
+    <endEvent id="_A71D6B5A-5D02-45A7-BB12-9AB22FF7F0DB" name="End Main Process">
+      <incoming>_8F8DD594-B6BB-46DF-ADA9-1DDED882BC48</incoming>
+      <terminateEventDefinition id="_3CCDA0BC-78BD-4449-ACB2-73510EFD6028" />
+    </endEvent>
+    <task id="_9519D73E-A935-47B9-BE4F-4662BE0128C6" name="Custom REST Task" drools:taskName="CustomTask">
+      <incoming>_3DCFCEDA-88CB-45BF-8B7B-AC7BF8DFFE0B</incoming>
+      <outgoing>_4CAB0C7D-B69B-4CB8-A353-C280DC4DB8C0</outgoing>
+      <ioSpecification id="_4BB6F4E1-2B1C-4321-8C7B-9A1B738E57B8">
+        <dataInput id="_89DA090D-136B-4548-86B7-44CC27EBE183" name="key" drools:dtype="String" itemSubjectRef="_C1742A25-D051-49B5-B6F2-72003396F55A" />
+        <dataInput id="_435381F6-2C7E-41C1-AE81-310A6952DB5D" name="Url" drools:dtype="String" itemSubjectRef="_C1742A25-D051-49B5-B6F2-72003396F55A" />
+        <dataInput id="_50F398EA-C8AF-45ED-8D44-396CB117B6E4" name="Input" drools:dtype="String" itemSubjectRef="_C1742A25-D051-49B5-B6F2-72003396F55A" />
+        <dataOutput name="Result" id="_A676A27D-82A6-46D1-BC6D-018CCCE4735D" drools:dtype="Object" itemSubjectRef="_DF904DE4-AB4C-4B9C-95FF-301F6DE6A798" />
+        <inputSet id="_0C9952B9-205A-4D78-905E-735B3594D33B">
+          <dataInputRefs>_89DA090D-136B-4548-86B7-44CC27EBE183</dataInputRefs>
+          <dataInputRefs>_435381F6-2C7E-41C1-AE81-310A6952DB5D</dataInputRefs>
+          <dataInputRefs>_50F398EA-C8AF-45ED-8D44-396CB117B6E4</dataInputRefs>
+        </inputSet>
+        <outputSet id="_DFB82457-9CB6-4416-AA5B-15D4F32A8A69">
+          <dataOutputRefs>_A676A27D-82A6-46D1-BC6D-018CCCE4735D</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation id="_3098C4A5-4F7F-4A87-B5BC-F1C06E6C2EE0">
+        <sourceRef>_2678688B-AD2C-4B8D-AB75-CDB108C5EB44</sourceRef>
+        <targetRef>_89DA090D-136B-4548-86B7-44CC27EBE183</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="_CBF9EFCE-19A2-431A-A92A-569E8D4034FD">
+        <sourceRef>_083C2F09-0367-4D09-9CAA-42A801464C21</sourceRef>
+        <targetRef>_435381F6-2C7E-41C1-AE81-310A6952DB5D</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="_1DB7F749-B5F6-4E36-A209-093591732C98">
+        <sourceRef>_54EB1D2D-D563-47D3-80E3-D7662801B3E4</sourceRef>
+        <targetRef>_50F398EA-C8AF-45ED-8D44-396CB117B6E4</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation id="_829E80F0-8D3C-4A74-9946-9535D1F0428C">
+        <sourceRef>_A676A27D-82A6-46D1-BC6D-018CCCE4735D</sourceRef>
+        <targetRef>_D499AA75-46CE-4286-8060-3F3FB2889685</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <scriptTask id="_85BD2AAE-B2BF-4A72-953E-49696816D352" name="Init" scriptFormat="http://www.java.com/java">
+      <extensionElements>
+        <drools:metaData name="customAsync">
+          <drools:metaValue>false</drools:metaValue>
+        </drools:metaData>
+        <drools:metaData name="customAutoStart">
+          <drools:metaValue>false</drools:metaValue>
+        </drools:metaData>
+      </extensionElements>
+      <incoming>_4DA5EE99-A022-4C5F-86DC-9942CD4353E9</incoming>
+      <outgoing>_3DCFCEDA-88CB-45BF-8B7B-AC7BF8DFFE0B</outgoing>
+      <script>System.out.println(&quot;$$$ Initial task with following key: &apos;&quot;+key+&quot;&apos;&quot;);
+kcontext.setVariable(&quot;url&quot;, &quot;http://localhost:8081/myservice/{key}&quot;);</script>
+    </scriptTask>
+    <scriptTask id="_F31BA0F4-570F-40AB-94FD-0610FB0D88BC" name="Dump Result" scriptFormat="http://www.java.com/java">
+      <extensionElements>
+        <drools:metaData name="customAsync">
+          <drools:metaValue>false</drools:metaValue>
+        </drools:metaData>
+        <drools:metaData name="customAutoStart">
+          <drools:metaValue>false</drools:metaValue>
+        </drools:metaData>
+      </extensionElements>
+      <incoming>_4CAB0C7D-B69B-4CB8-A353-C280DC4DB8C0</incoming>
+      <outgoing>_8F8DD594-B6BB-46DF-ADA9-1DDED882BC48</outgoing>
+      <script>System.out.println(&quot;$$$ Final result: user =&apos;&quot;+user.toString()+&quot;&apos;&quot;);</script>
+    </scriptTask>
+    <subProcess id="_E6922AC3-C7B7-4DA6-8C7A-BCF596BDA70B" name="Error Handling" triggeredByEvent="true">
+      <extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue>Error Handling</drools:metaValue>
+        </drools:metaData>
+      </extensionElements>
+      <startEvent id="_D84E3205-52F1-415C-AB4D-01429F262B46" name="Start Error Handling">
+        <outgoing>_D94FABD6-FEFA-46BF-8000-5ACAD4E27C89</outgoing>
+        <errorEventDefinition id="_F16C6130-15A5-4569-AB5A-924B41949948" errorRef="_EC55E376-73A9-4982-8310-5FE3B976BD35" drools:erefname="java.lang.Throwable" />
+      </startEvent>
+      <endEvent id="_199065FC-827F-4D7E-8DB8-19F3CA01E45E" name="End Error Handling">
+        <incoming>_A5512AD2-4654-4148-8C34-27F76BA6C320</incoming>
+      </endEvent>
+      <scriptTask id="_E6B6BF16-878F-435B-987A-6355A80AA9AA" name="Fix Error" scriptFormat="http://www.java.com/java">
+        <extensionElements>
+          <drools:metaData name="customAsync">
+            <drools:metaValue>false</drools:metaValue>
+          </drools:metaData>
+          <drools:metaData name="customAutoStart">
+            <drools:metaValue>false</drools:metaValue>
+          </drools:metaData>
+        </extensionElements>
+        <incoming>_D94FABD6-FEFA-46BF-8000-5ACAD4E27C89</incoming>
+        <outgoing>_A5512AD2-4654-4148-8C34-27F76BA6C320</outgoing>
+        <script>System.out.println(&quot;%%%% Fixing error %%%&quot;);</script>
+      </scriptTask>
+      <sequenceFlow id="_D94FABD6-FEFA-46BF-8000-5ACAD4E27C89" sourceRef="_D84E3205-52F1-415C-AB4D-01429F262B46" targetRef="_E6B6BF16-878F-435B-987A-6355A80AA9AA" />
+      <sequenceFlow id="_A5512AD2-4654-4148-8C34-27F76BA6C320" sourceRef="_E6B6BF16-878F-435B-987A-6355A80AA9AA" targetRef="_199065FC-827F-4D7E-8DB8-19F3CA01E45E" />
+    </subProcess>
+    <sequenceFlow id="_4DA5EE99-A022-4C5F-86DC-9942CD4353E9" sourceRef="_29D91105-AB66-4E4C-B598-39CF7E8BBC7E" targetRef="_85BD2AAE-B2BF-4A72-953E-49696816D352" />
+    <sequenceFlow id="_8F8DD594-B6BB-46DF-ADA9-1DDED882BC48" sourceRef="_F31BA0F4-570F-40AB-94FD-0610FB0D88BC" targetRef="_A71D6B5A-5D02-45A7-BB12-9AB22FF7F0DB" />
+    <sequenceFlow id="_4CAB0C7D-B69B-4CB8-A353-C280DC4DB8C0" sourceRef="_9519D73E-A935-47B9-BE4F-4662BE0128C6" targetRef="_F31BA0F4-570F-40AB-94FD-0610FB0D88BC" />
+    <sequenceFlow id="_3DCFCEDA-88CB-45BF-8B7B-AC7BF8DFFE0B" sourceRef="_85BD2AAE-B2BF-4A72-953E-49696816D352" targetRef="_9519D73E-A935-47B9-BE4F-4662BE0128C6" />
+  </process>
+  <bpmndi:BPMNDiagram id="_A51214F5-63E0-44FD-81BF-2D569F65820E">
+    <bpmndi:BPMNPlane id="_A1BBBA99-AA6A-4957-AC40-044AEF46E110">
+      <bpmndi:BPMNShape id="_7E5511D3-F46B-4173-94F5-D9FC6BC2B4AE" bpmnElement="_29D91105-AB66-4E4C-B598-39CF7E8BBC7E">
+        <dc:Bounds x="120" y="300" width="60" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_4BF40825-7A19-49F6-BECE-57A6FF6DDFC1" bpmnElement="_85BD2AAE-B2BF-4A72-953E-49696816D352">
+        <dc:Bounds x="240" y="280" width="120" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_34AC1EAB-5A73-403D-A3AD-7521913704F2" bpmnElement="_A71D6B5A-5D02-45A7-BB12-9AB22FF7F0DB">
+        <dc:Bounds x="800" y="300" width="60" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_1F988BF9-F829-40EC-85F7-8D924FF29BC3" bpmnElement="_F31BA0F4-570F-40AB-94FD-0610FB0D88BC">
+        <dc:Bounds x="640" y="280" width="120" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_09E6BA6C-4EAA-45FD-AC3F-9C77407CE26D" bpmnElement="_E6922AC3-C7B7-4DA6-8C7A-BCF596BDA70B">
+        <dc:Bounds x="160" y="720" width="580" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_962CA56F-255F-4711-8E20-11E1F2C5D47D" bpmnElement="_D84E3205-52F1-415C-AB4D-01429F262B46">
+        <dc:Bounds x="220" y="800" width="60" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_502B257E-4C8C-4EC0-8FD7-7B465CD3C6F7" bpmnElement="_E6B6BF16-878F-435B-987A-6355A80AA9AA">
+        <dc:Bounds x="340" y="780" width="180" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_2B6A19AF-0456-4EDC-8B3E-FACE28231AE0" bpmnElement="_199065FC-827F-4D7E-8DB8-19F3CA01E45E">
+        <dc:Bounds x="580" y="800" width="60" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_B318DEAF-F158-4966-8CDA-27379EDF1ACA" bpmnElement="_9519D73E-A935-47B9-BE4F-4662BE0128C6">
+        <dc:Bounds x="400" y="280" width="180" height="100" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_7B86D42E-131A-4624-BA65-5F4161E1DF49-AUTO-SOURCE-AUTO-TARGET" bpmnElement="_4DA5EE99-A022-4C5F-86DC-9942CD4353E9" sourceElement="_7E5511D3-F46B-4173-94F5-D9FC6BC2B4AE" targetElement="_4BF40825-7A19-49F6-BECE-57A6FF6DDFC1">
+        <di:waypoint x="150" y="330" />
+        <di:waypoint x="300" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_142A1C21-26EF-4462-A91A-5B19E9275DB8" bpmnElement="_8F8DD594-B6BB-46DF-ADA9-1DDED882BC48" sourceElement="_1F988BF9-F829-40EC-85F7-8D924FF29BC3" targetElement="_34AC1EAB-5A73-403D-A3AD-7521913704F2">
+        <di:waypoint x="700" y="330" />
+        <di:waypoint x="830" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_01C0E9A0-6001-49F9-A280-B3F311460DBE-AUTO-SOURCE-AUTO-TARGET" bpmnElement="_D94FABD6-FEFA-46BF-8000-5ACAD4E27C89" sourceElement="_962CA56F-255F-4711-8E20-11E1F2C5D47D" targetElement="_502B257E-4C8C-4EC0-8FD7-7B465CD3C6F7">
+        <di:waypoint x="250" y="830" />
+        <di:waypoint x="430" y="830" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_89A08C7B-354D-4C96-B4D9-CFCE0A701E14-AUTO-SOURCE-AUTO-TARGET" bpmnElement="_A5512AD2-4654-4148-8C34-27F76BA6C320" sourceElement="_502B257E-4C8C-4EC0-8FD7-7B465CD3C6F7" targetElement="_2B6A19AF-0456-4EDC-8B3E-FACE28231AE0">
+        <di:waypoint x="430" y="830" />
+        <di:waypoint x="610" y="830" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_F710B1A0-6436-4062-AB5C-E440D3FF72F7" bpmnElement="_4CAB0C7D-B69B-4CB8-A353-C280DC4DB8C0" sourceElement="_B318DEAF-F158-4966-8CDA-27379EDF1ACA" targetElement="_1F988BF9-F829-40EC-85F7-8D924FF29BC3">
+        <di:waypoint x="490" y="330" />
+        <di:waypoint x="700" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_1C4E571F-F8AE-4928-A0FD-67845065D34D" bpmnElement="_3DCFCEDA-88CB-45BF-8B7B-AC7BF8DFFE0B" sourceElement="_4BF40825-7A19-49F6-BECE-57A6FF6DDFC1" targetElement="_B318DEAF-F158-4966-8CDA-27379EDF1ACA">
+        <di:waypoint x="300" y="330" />
+        <di:waypoint x="490" y="330" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
