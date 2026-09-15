@@ -36,3 +36,17 @@ It is not using the BAMOE specific exception to spawn a sub-process instance to 
 Either using the Task service REST API, or using the management console.
 
 Unless the REST service is fixed, it will be retried as many times as defined in the input data.
+
+
+## Sample 3 - error-handling3.bpmn
+
+An error with the REST remote service invocation start an embedded sub-process to fix the issue. It does not handle retries.
+
+### Build and start
+`$ mvn clean compile spring-boot:run`
+
+### Start a process instance
+`$ curl -X POST http://localhost:8080/main_process3 -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "key": "1" }'`
+
+### Complete the human task
+Either using the Task service REST API, or using the management console.
